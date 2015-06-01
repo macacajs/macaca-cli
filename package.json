@@ -1,0 +1,46 @@
+{
+  "name": "macaca-client",
+  "version": "0.1.0",
+  "description": "macaca client for mobile",
+  "keywords": ["automation", "webdriver", "mobile", "ui automation", "test framework"],
+  "bin": {
+    "macaca": "./bin/macaca-client",
+    "macaca-client": "./bin/macaca-client"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xudafeng/macaca-client.git"
+  },
+  "dependencies": {
+    "co": "3",
+    "mobile-driver": "~0.1.2",
+    "co-request": "~0.2.0",
+    "commander": "~2.8.1",
+    "lodash": "~3.5.0",
+    "moment": "~2.9.0",
+    "mocha": "2.2.4",
+    "ipv4": "*"
+  },
+  "devDependencies": {
+    "co-mocha": "*",
+    "istanbul": "*",
+    "should": "~6.0.3",
+    "jshint": "*"
+  },
+  "scripts": {
+    "test": "make test",
+    "jshint": "make jshint"
+  },
+  "precommit": [
+    "jshint"
+  ],
+  "engines": {
+    "node": ">= 1.5.x"
+  },
+  "author": "xudafeng",
+  "homepage": "https://github.com/xudafeng/macaca-client",
+  "email": "xudafeng@126.com",
+  "blog": "http://xdf.me",
+  "license": "MIT"
+}

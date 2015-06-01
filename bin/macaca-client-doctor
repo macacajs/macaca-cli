@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+/* ================================================================
+ * macaca-client by xdf(xudafeng[at]126.com)
+ *
+ * first created at : Tue Mar 17 2015 00:16:10 GMT+0800 (CST)
+ *
+ * ================================================================
+ * Copyright 2013 xdf
+ *
+ * Licensed under the MIT License
+ * You may not use this file except in compliance with the License.
+ *
+ * ================================================================ */
+
+'use strict';
+
+var os = require('os');
+var program = require('commander');
+var _ = require('../lib/common/helper');
+var logger = require('../lib/common/logger');
+var doctor = require('../lib').doctor;
+
+var options = {
+  verbose: false,
+  platform: os.platform(),
+  arch: os.arch()
+};
+
+program
+  .option('--verbose',      'show more debugging information')
+  .parse(process.argv);
+
+_.merge(options, _.getConfig(program));
+
+doctor(options);

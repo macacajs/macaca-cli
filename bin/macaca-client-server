@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+/* ================================================================
+ * macaca-client by xdf(xudafeng[at]126.com)
+ *
+ * first created at : Tue Mar 17 2015 00:16:10 GMT+0800 (CST)
+ *
+ * ================================================================
+ * Copyright 2013 xdf
+ *
+ * Licensed under the MIT License
+ * You may not use this file except in compliance with the License.
+ *
+ * ================================================================ */
+
+'use strict';
+
+var program = require('commander');
+var _ = require('../lib/common/helper');
+var logger = require('../lib/common/logger');
+var server = require('../lib').server;
+
+var options = {
+  port: 3456,
+  verbose: false
+};
+
+program
+  .option('-p, --port <d>',     'set port for server (default: ' + options.port + ')')
+  .option('--verbose',      'show more debugging information')
+  .parse(process.argv);
+
+_.merge(options, _.getConfig(program));
+
+server(options);

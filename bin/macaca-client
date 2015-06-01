@@ -1,0 +1,114 @@
+#!/usr/bin/env node
+/* ================================================================
+ * macaca-client by xdf(xudafeng[at]126.com)
+ *
+ * first created at : Tue Mar 17 2015 00:16:10 GMT+0800 (CST)
+ *
+ * ================================================================
+ * Copyright 2013 xdf
+ *
+ * Licensed under the MIT License
+ * You may not use this file except in compliance with the License.
+ *
+ * ================================================================ */
+
+'use strict';
+
+var co = require('co');
+var fs = require('fs');
+var path = require('path');
+var program = require('commander');
+var spawn = require('child_process').spawn;
+var pkg = require('../package');
+var logger = require('../lib/common/logger');
+var request = require('../lib/common/request');
+var signal = require('..').server.signal;
+
+program
+  .option('-s, --signal <s>',   'send signal to process: stop, restart')
+  .option('-v, --versions',     'show version and exit')
+  .option('--verbose',          'show more debugging information')
+  .usage('<command> [options] [arguments]')
+  .helpInformation = function() {
+    return [
+      '',
+      '  \u001b[37m' + pkg.description + '\u001b[0m',
+      '',
+      '  Usage:',
+      '',
+      '  \u001b[37mmacaca\u001b[0m or \u001b[37mmacaca-client\u001b[0m ' + this.usage(),
+      '',
+      '  Commands:',
+      '',
+      '    server            start server',
+      '    doctor            detect environment',
+      '    run               run test',
+      '',
+      '  Options:',
+      '',
+      '' + this.optionHelp().replace(/^/gm, '    '),
+      '',
+      '  Further help:',
+      '',
+      '    \u001b[4m' + pkg.homepage + '\u001b[0m',
+      '',
+      ''
+    ].join('\n');
+  };
+
+program.parse(process.argv);
+
+if (program.versions) {
+  console.log('%s version: %s', pkg.name, pkg.version);
+  process.exit(0);
+}
+
+if (program.signal) {
+  signal(program.signal);
+  return;
+}
+
+function *init() {
+  var opt = {
+    uri: 'http://registry.npmjs.org/' + pkg.name + '/latest',
+    method: 'get',
+    timeout: 1000
+  };
+
+  var result = yield request(opt);
+
+  if (result) {
+    var data = JSON.parse(result.body);
+
+    if (data.version && pkg.version !== data.version) {
+      console.log('version [%s] is outdate', pkg.version);
+      console.log('exec \u001b[37mnpm i -g %s@%s\u001b[0m to update', pkg.name, data.version);
+    }
+  }
+
+  var cmd = program.args[0];
+
+  if (!cmd) {
+    return program.help();
+  }
+
+  var file = path.join(__dirname, pkg.name + '-' + cmd);
+
+  if (!fs.existsSync(file)) {
+    console.log('\n  command `\u001b[33m%s\u001b[0m` invalid', cmd);
+    return program.help();
+  }
+
+  var args = program.rawArgs.slice(3);
+  args.unshift(file);
+
+  var bootstrap = spawn('node', args, {
+    stdio: 'inherit'
+  });
+
+  bootstrap.on('close', function(code) {
+    process.exit('process exited with code %s', code);
+  });
+};
+
+co(init)();
