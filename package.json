@@ -1,6 +1,6 @@
 {
   "name": "macaca-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "macaca client for mobile",
   "keywords": ["automation", "webdriver", "mobile", "ui automation", "test framework"],
   "bin": {
@@ -19,10 +19,10 @@
     "commander": "~2.8.1",
     "lodash": "~3.5.0",
     "moment": "~2.9.0",
-    "mocha": "2.2.4",
     "ipv4": "*"
   },
   "devDependencies": {
+    "mocha": "2.2.5",
     "co-mocha": "*",
     "istanbul": "*",
     "should": "~6.0.3",
