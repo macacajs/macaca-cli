@@ -26,7 +26,7 @@ var options = {
 
 program
   .option('-p, --port <d>',     'set port for server (default: ' + options.port + ')')
-  .option('--verbose',      'show more debugging information')
+  .option('--verbose',          'show more debugging information')
   .parse(process.argv);
 
 _.merge(options, _.getConfig(program));

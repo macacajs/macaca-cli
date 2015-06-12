@@ -1,8 +1,14 @@
 {
   "name": "macaca-client",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "macaca client for mobile",
-  "keywords": ["automation", "webdriver", "mobile", "ui automation", "test framework"],
+  "keywords": [
+    "automation",
+    "webdriver",
+    "mobile",
+    "ui automation",
+    "test framework"
+  ],
   "bin": {
     "macaca": "./bin/macaca-client",
     "macaca-client": "./bin/macaca-client"
@@ -10,22 +16,24 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/xudafeng/macaca-client.git"
+    "url": "git://github.com/macacajs/macaca-client.git"
   },
   "dependencies": {
+    "chalk": "~1.1.1",
     "co": "3",
-    "mobile-driver": "~0.1.2",
-    "co-request": "~0.2.0",
     "commander": "~2.8.1",
+    "ipv4": "*",
     "lodash": "~3.5.0",
+    "mobile-driver": "~0.1.10",
     "moment": "~2.9.0",
-    "ipv4": "*"
+    "npm-update": "~1.0.2",
+    "reliable-logger": "~1.0.6"
   },
   "devDependencies": {
-    "mocha": "2.2.5",
+    "mocha": "2.2.4",
     "co-mocha": "*",
     "istanbul": "*",
-    "should": "~6.0.3",
+    "should": "*",
     "jshint": "*"
   },
   "scripts": {
@@ -36,10 +44,11 @@
     "jshint"
   ],
   "engines": {
-    "node": ">= 1.5.x"
+    "node": ">=0.12.0",
+    "iojs": ">=1.5.0"
   },
   "author": "xudafeng",
-  "homepage": "https://github.com/xudafeng/macaca-client",
+  "homepage": "https://github.com/macacajs/macaca-client",
   "email": "xudafeng@126.com",
   "blog": "http://xdf.me",
   "license": "MIT"

@@ -17,11 +17,13 @@
 var co = require('co');
 var fs = require('fs');
 var path = require('path');
+var EOL = require('os').EOL;
+var chalk = require('chalk');
+var pkg = require('../package');
+var update = require('npm-update');
 var program = require('commander');
 var spawn = require('child_process').spawn;
-var pkg = require('../package');
 var logger = require('../lib/common/logger');
-var request = require('../lib/common/request');
 var signal = require('..').server.signal;
 
 program
@@ -32,17 +34,17 @@ program
   .helpInformation = function() {
     return [
       '',
-      '  \u001b[37m' + pkg.description + '\u001b[0m',
+      '  ' + chalk.white(pkg.description),
       '',
       '  Usage:',
       '',
-      '  \u001b[37mmacaca\u001b[0m or \u001b[37mmacaca-client\u001b[0m ' + this.usage(),
+      '    ' + this._name + ' ' + this.usage(),,
       '',
       '  Commands:',
       '',
-      '    server            start server',
-      '    doctor            detect environment',
-      '    run               run test',
+      '    server          start webdriver server',
+      '    doctor          detect environment',
+      '    run             run test',
       '',
       '  Options:',
       '',
@@ -50,16 +52,16 @@ program
       '',
       '  Further help:',
       '',
-      '    \u001b[4m' + pkg.homepage + '\u001b[0m',
+      '  ' + chalk.white(pkg.homepage),
       '',
       ''
-    ].join('\n');
+    ].join(EOL);
   };
 
 program.parse(process.argv);
 
 if (program.versions) {
-  console.log('%s version: %s', pkg.name, pkg.version);
+  console.info('%s  %s%s', EOL, pkg.version, EOL);
   process.exit(0);
 }
 
@@ -68,47 +70,41 @@ if (program.signal) {
   return;
 }
 
-function *init() {
-  var opt = {
-    uri: 'http://registry.npmjs.org/' + pkg.name + '/latest',
-    method: 'get',
-    timeout: 1000
-  };
+var cmd = program.args[0];
 
-  var result = yield request(opt);
+if (!cmd) {
+  return program.help();
+}
 
-  if (result) {
-    var data = JSON.parse(result.body);
+var file = path.join(__dirname, pkg.name + '-' + cmd);
 
-    if (data.version && pkg.version !== data.version) {
-      console.log('version [%s] is outdate', pkg.version);
-      console.log('exec \u001b[37mnpm i -g %s@%s\u001b[0m to update', pkg.name, data.version);
-    }
-  }
+if (!fs.existsSync(file)) {
+  console.log('%s  command `%s` not found', EOL, chalk.yellow(cmd));
+  return program.help();
+}
 
-  var cmd = program.args[0];
+function init(error, data) {
 
-  if (!cmd) {
-    return program.help();
-  }
-
-  var file = path.join(__dirname, pkg.name + '-' + cmd);
-
-  if (!fs.existsSync(file)) {
-    console.log('\n  command `\u001b[33m%s\u001b[0m` invalid', cmd);
-    return program.help();
+  if (data && data.version && pkg.version !== data.version) {
+    console.log(chalk.white('%s  %s'), EOL, new Array(39).join('*'));
+    console.log(chalk.white('  *  version %s is outdate          *'), pkg.version);
+    console.log(chalk.white('  *  run npm i -g %s@%s  *'), pkg.name, data.version);
+    console.log(chalk.white('  %s'), new Array(39).join('*'), EOL);
   }
 
   var args = program.rawArgs.slice(3);
   args.unshift(file);
 
   var bootstrap = spawn('node', args, {
-    stdio: 'inherit'
+    stdio: [process.stdin, process.stdout, 2, 'ipc']
   });
 
   bootstrap.on('close', function(code) {
-    process.exit('process exited with code %s', code);
+    process.exit('process exited with code ' + code);
   });
-};
+}
 
-co(init)();
+co(update)({
+  pkg: pkg,
+  callback: init
+});

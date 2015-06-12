@@ -15,13 +15,12 @@
 'use strict';
 
 var program = require('commander');
+var Runner = require('../lib').Runner;
 var _ = require('../lib/common/helper');
 var logger = require('../lib/common/logger');
-var run = require('../lib').run;
 
 var options = {
   verbose: false,
-  server: false,
   framework: 'mocha',
   port: 3456,
   directory: process.cwd()
@@ -31,11 +30,22 @@ program
   .option('-f, --framework <s>',  'set test framework (default: ' + options.framework + ')')
   .option('-p, --port <d>',       'set port for server (default: ' + options.port + ')')
   .option('-d, --directory <s>',  'set directory task run (default: ' + options.directory + ')')
-  .option('--server',             'run with a server')
-  .option('--config',             'run with a auto config')
+  .option('--config',             'run with config file')
   .option('--verbose',            'show more debugging information')
   .parse(process.argv);
 
 _.merge(options, _.getConfig(program));
 
-run(options);
+var runner = new Runner(options);
+
+runner.on('data', function(data) {
+  logger.info(data);
+});
+
+runner.on('error', function(err) {
+  logger.warn(err);
+});
+
+runner.on('close', function() {
+  logger.info('Test completed!');
+});
