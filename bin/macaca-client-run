@@ -31,6 +31,7 @@ program
   .option('-p, --port <d>',       'set port for server (default: ' + options.port + ')')
   .option('-d, --directory <s>',  'set directory task run (default: ' + options.directory + ')')
   .option('--config',             'run with config file')
+  .option('--server',             'run with webdriver server')
   .option('--verbose',            'show more debugging information')
   .parse(process.argv);
 
