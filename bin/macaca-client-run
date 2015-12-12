@@ -29,7 +29,7 @@ var options = {
 program
   .option('-f, --framework <s>',  'set test framework (default: ' + options.framework + ')')
   .option('-p, --port <d>',       'set port for server (default: ' + options.port + ')')
-  .option('-d, --directory <s>',  'set directory for task (default: ' + options.directory + ')')
+  .option('-d, --directory <s>',  'set directory for task runner (default: ' + options.directory + ')')
   .option('--config',             'run with config file')
   .option('--server',             'run with webdriver server')
   .option('--verbose',            'show more debugging information')
