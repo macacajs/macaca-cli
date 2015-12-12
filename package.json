@@ -1,6 +1,6 @@
 {
   "name": "macaca-client",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "macaca client for mobile",
   "keywords": [
     "automation",
@@ -44,8 +44,7 @@
     "jshint"
   ],
   "engines": {
-    "node": ">=0.12.0",
-    "iojs": ">=1.5.0"
+    "node": ">=4.2.1"
   },
   "author": "xudafeng",
   "homepage": "https://github.com/macacajs/macaca-client",

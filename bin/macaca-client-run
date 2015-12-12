@@ -23,13 +23,13 @@ var options = {
   verbose: false,
   framework: 'mocha',
   port: 3456,
-  cwd: ''
+  directory: process.cwd()
 };
 
 program
   .option('-f, --framework <s>',  'set test framework (default: ' + options.framework + ')')
   .option('-p, --port <d>',       'set port for server (default: ' + options.port + ')')
-  .option('-d, --cwd <s>',  'set directory task run (default: ' + options.cwd + ')')
+  .option('-d, --directory <s>',  'set directory for task runner (default: ' + options.directory + ')')
   .option('--config',             'run with config file')
   .option('--server',             'run with webdriver server')
   .option('--verbose',            'show more debugging information')

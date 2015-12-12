@@ -1,5 +1,4 @@
-macaca-client
-=============
+# macaca-client
 
 > Automation driver for mobile.
 
