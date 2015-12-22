@@ -23,7 +23,8 @@ var options = {
   verbose: false,
   framework: 'mocha',
   port: 3456,
-  directory: null
+  directory: null,
+  cwd: process.cwd()
 };
 
 program

@@ -1,6 +1,6 @@
 {
   "name": "macaca-client",
-  "version": "0.1.11",
+  "version": "0.1.13",
   "description": "macaca client for mobile",
   "keywords": [
     "automation",
@@ -20,14 +20,17 @@
   },
   "dependencies": {
     "chalk": "~1.1.1",
-    "co": "3",
+    "co": "~4.6.0",
     "commander": "~2.8.1",
-    "ipv4": "*",
+    "detect-port": "~0.1.4",
+    "ipv4": "0.0.4",
+    "java-home": "~1.0.1",
     "lodash": "~3.5.0",
-    "mobile-driver": "~0.1.10",
+    "macaca-mocha": "~0.1.9",
     "moment": "~2.9.0",
     "npm-update": "~1.0.2",
-    "reliable-logger": "~1.0.6"
+    "reliable-logger": "~1.0.6",
+    "webdriver-server": "~0.1.2"
   },
   "devDependencies": {
     "mocha": "2.2.4",
