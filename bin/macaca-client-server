@@ -14,6 +14,7 @@
 
 'use strict';
 
+var co = require('co');
 var program = require('commander');
 var _ = require('../lib/common/helper');
 var logger = require('../lib/common/logger');
@@ -31,4 +32,4 @@ program
 
 _.merge(options, _.getConfig(program));
 
-server(options);
+co(server, options);
