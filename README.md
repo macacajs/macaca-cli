@@ -2,6 +2,12 @@
 
 > Automation driver for mobile.
 
+## Support
+
+- xcode >= 7.2
+- android sdk >= 4.4.2
+- node >= 4.2.x
+
 ## Installment
 
 ```bash
