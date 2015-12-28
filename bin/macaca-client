@@ -24,10 +24,8 @@ var update = require('npm-update');
 var program = require('commander');
 var spawn = require('child_process').spawn;
 var logger = require('../lib/common/logger');
-var signal = require('..').server.signal;
 
 program
-  .option('-s, --signal <s>',   'send signal to process: stop, restart')
   .option('-v, --versions',     'show version and exit')
   .option('--verbose',          'show more debugging information')
   .usage('<command> [options] [arguments]')
@@ -63,11 +61,6 @@ program.parse(process.argv);
 if (program.versions) {
   console.info('%s  %s%s', EOL, pkg.version, EOL);
   process.exit(0);
-}
-
-if (program.signal) {
-  signal(program.signal);
-  return;
 }
 
 var cmd = program.args[0];
