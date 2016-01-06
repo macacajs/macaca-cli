@@ -14,11 +14,12 @@
 
 'use strict';
 
+var co = require('co');
 var os = require('os');
 var program = require('commander');
+var doctor = require('../lib').doctor;
 var _ = require('../lib/common/helper');
 var logger = require('../lib/common/logger');
-var doctor = require('../lib').doctor;
 
 var options = {
   verbose: false,
@@ -32,4 +33,4 @@ program
 
 _.merge(options, _.getConfig(program));
 
-doctor(options);
+co(doctor, options);
