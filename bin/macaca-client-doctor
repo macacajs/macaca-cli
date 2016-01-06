@@ -23,7 +23,6 @@ var logger = require('../lib/common/logger');
 
 var options = {
   verbose: false,
-  platform: os.platform(),
   arch: os.arch()
 };
 
