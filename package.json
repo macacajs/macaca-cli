@@ -1,6 +1,6 @@
 {
   "name": "macaca-client",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "description": "macaca client for mobile",
   "keywords": [
     "automation",
@@ -26,6 +26,7 @@
     "ipv4": "0.0.4",
     "java-home": "~1.0.1",
     "lodash": "~3.5.0",
+    "macaca-logo": "~0.1.1",
     "macaca-mocha": "~0.1.9",
     "macaca-utils": "~0.1.3",
     "moment": "~2.9.0",
@@ -42,7 +43,8 @@
   },
   "scripts": {
     "test": "make test",
-    "jshint": "make jshint"
+    "jshint": "make jshint",
+    "postinstall": "node ./scripts/print.js"
   },
   "precommit": [
     "jshint"
