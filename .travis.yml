@@ -1,5 +1,6 @@
 language: node_js
 node_js:
-  - '0.12'
-  - 'iojs'
-after_success: make test
+  - "4"
+sudo: false
+script: "make travis"
+after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
