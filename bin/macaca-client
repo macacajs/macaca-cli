@@ -95,6 +95,14 @@ function init(error, data) {
   bootstrap.on('close', function(code) {
     process.exit('process exited with code ' + code);
   });
+
+  bootstrap.on('message', function(e) {
+    switch (e.signal) {
+      case 'kill':
+        bootstrap.kill();
+        break;
+    }
+  });
 }
 
 co(update, {
