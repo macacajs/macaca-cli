@@ -24,6 +24,7 @@ var options = {
   framework: 'mocha',
   port: 3456,
   directory: null,
+  colors: true,
   cwd: process.cwd()
 };
 
@@ -31,6 +32,7 @@ program
   .option('-f, --framework <s>',  'set test framework (default: ' + options.framework + ')')
   .option('-p, --port <d>',       'set port for server (default: ' + options.port + ')')
   .option('-d, --directory <s>',  'set directory for task runner (default: ' + options.directory + ')')
+  .option('-c, --colors <s>',     'run with console colors (default: ' + options.colors + ')')
   .option('--config',             'run with config file')
   .option('--server',             'run with webdriver server')
   .option('--verbose',            'show more debugging information')
