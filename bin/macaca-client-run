@@ -14,10 +14,15 @@
 
 'use strict';
 
+var fs = require('fs');
+var path = require('path');
+var EOL = require('os').EOL;
 var program = require('commander');
+var Convert = require('ansi-to-html');
 var Runner = require('../lib').Runner;
 var _ = require('../lib/common/helper');
 var logger = require('../lib/common/logger');
+var format = require('../lib/common/logFormatter');
 
 var options = {
   verbose: false,
@@ -32,6 +37,7 @@ program
   .option('-f, --framework <s>',  'set test framework (default: ' + options.framework + ')')
   .option('-p, --port <d>',       'set port for server (default: ' + options.port + ')')
   .option('-d, --directory <s>',  'set directory for task runner (default: ' + options.directory + ')')
+  .option('-o, --output [s]',     'set output html file')
   .option('-c, --colors <s>',     'run with console colors (default: ' + options.colors + ')')
   .option('--config',             'run with config file')
   .option('--server',             'run with webdriver server')
@@ -40,16 +46,48 @@ program
 
 _.merge(options, _.getConfig(program));
 
+if (options.output) {
+  var filePath;
+  if (options.output === true) {
+    var projectName = process.cwd().split('/').pop();
+    var date = _.moment().format('YYYY-MM-DD');
+    filePath = path.resolve(process.cwd(), 'macaca-test', `macaca-${projectName}-${date}.html`);
+  } else {
+    filePath = options.output;
+  }
+  var chunks = [];
+  var convert = new Convert({
+    newline: true
+  });
+}
+
 var runner = new Runner(options);
 
 runner.on('data', function(data) {
-  logger.info(data);
+  if (chunks) {
+    chunks.push(format(data, 'html'));
+  }
+  logger.info(format(data, 'plain'));
 });
 
 runner.on('error', function(err) {
+  if (chunks) {
+    chunks.push(err);
+  }
   logger.warn(err);
 });
 
 runner.on('close', function() {
+  if (chunks) {
+    try {
+      console.log(chunks.join(EOL))
+      var body = convert.toHtml(chunks.join(EOL));
+      var head = '<!DOCTYPE html><html><head><meta charset="utf-8"><style>img {width:50%;} span {line-height:50px;}</style></head><body style="width:990px;word-break:break-all;margin:0 auto;">'
+      var foot = '</body></html>'
+      fs.writeFileSync(filePath, head + body + foot);
+    } catch(e) {
+      console.log('Error happened when writing to output html.');
+    }
+  }
   logger.info('Test completed!');
 });
