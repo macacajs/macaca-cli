@@ -81,8 +81,28 @@ runner.on('close', function() {
   if (chunks) {
     try {
       var body = convert.toHtml(chunks.join(EOL));
-      var head = '<!DOCTYPE html><html><head><meta charset="utf-8"><style>img {width:50%;} span {line-height:50px;}</style></head><body style="width:990px;word-break:break-all;margin:0 auto;">'
-      var foot = '</body></html>'
+      var head = `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <style>
+              img {
+                width:50%;
+              }
+              span {
+                line-height:50px;
+              }
+              tr:first-child {
+                background-color: #EDEDED;
+              }
+              th, td {
+                padding: 5px 10px;
+              }
+            </style>
+          </head>
+          <body style="width:990px;word-break:break-all;margin:0 auto;">`;
+      var foot = '</body></html>';
       fs.writeFileSync(filePath, head + body + foot);
     } catch(e) {
       console.log('Error happened when writing to output html.');
