@@ -28,6 +28,7 @@ var options = {
 program
   .option('-p, --port <d>',     'set port for server (default: ' + options.port + ')')
   .option('--verbose',          'show more debugging information')
+  .option('-t, --defaultCommandTimeout <d>', 'set defaultCommandTimeout for server (default: 60ms)', parseInt)
   .parse(process.argv);
 
 _.merge(options, _.getConfig(program));
