@@ -22,7 +22,8 @@ var logger = require('../lib/common/logger');
 
 var options = {
   port: 3456,
-  verbose: false
+  verbose: false,
+  always: true
 };
 
 program
