@@ -1,6 +1,6 @@
 {
   "name": "macaca-client",
-  "version": "0.1.27",
+  "version": "1.0.0",
   "description": "macaca client for mobile",
   "keywords": [
     "automation",
@@ -34,7 +34,7 @@
     "moment": "~2.9.0",
     "npm-update": "~1.0.2",
     "reliable-logger": "~1.0.6",
-    "webdriver-server": "~0.1.2"
+    "webdriver-server": "~1.0.0"
   },
   "devDependencies": {
     "mocha": "2.2.4",
