@@ -15,15 +15,14 @@
 'use strict';
 
 var co = require('co');
-var os = require('os');
 var program = require('commander');
-var doctor = require('../lib').doctor;
+var Doctor = require('macaca-doctor');
+
 var _ = require('../lib/common/helper');
 var logger = require('../lib/common/logger');
 
 var options = {
-  verbose: false,
-  arch: os.arch()
+  verbose: false
 };
 
 program
@@ -32,4 +31,6 @@ program
 
 _.merge(options, _.getConfig(program));
 
-co(doctor, options);
+var doctor = new Doctor(options);
+
+co(doctor.check);
