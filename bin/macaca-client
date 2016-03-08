@@ -99,7 +99,6 @@ function init(error, data) {
     printInfo([`version ${data.version} is outdate`, `run: npm i -g ${pkg.name}@${pkg.version}`]);
   }
 
-  return;
   var args = program.rawArgs.slice(3);
   args.unshift(file);
 
