@@ -19,10 +19,11 @@ var fs = require('fs');
 var path = require('path');
 var EOL = require('os').EOL;
 var chalk = require('chalk');
-var pkg = require('../package');
 var update = require('npm-update');
 var program = require('commander');
 var spawn = require('child_process').spawn;
+
+var pkg = require('../package');
 var logger = require('../lib/common/logger');
 
 program
@@ -76,15 +77,29 @@ if (!fs.existsSync(file)) {
   return program.help();
 }
 
+var printInfo = function(lines) {
+  var maxLength = 0;
+  lines.forEach(line => {
+    maxLength = line.length > maxLength ? line.length : maxLength;
+  });
+
+  var res = [new Array(maxLength + 7).join('*')];
+
+  lines.forEach(line => {
+    res.push(`*  ${line + new Array(maxLength - line.length + 1).join(' ')}  *`);
+  });
+
+  res.push(new Array(maxLength + 7).join('*'));
+  console.log(chalk.white(`${EOL}${res.join(EOL)}${EOL}`));
+};
+
 function init(error, data) {
 
   if (data && data.version && pkg.version !== data.version) {
-    console.log(chalk.white('%s  %s'), EOL, new Array(39).join('*'));
-    console.log(chalk.white('  *  version %s is outdate          *'), pkg.version);
-    console.log(chalk.white('  *  run npm i -g %s@%s  *'), pkg.name, data.version);
-    console.log(chalk.white('  %s'), new Array(39).join('*'), EOL);
+    printInfo([`version ${data.version} is outdate`, `run: npm i -g ${pkg.name}@${pkg.version}`]);
   }
 
+  return;
   var args = program.rawArgs.slice(3);
   args.unshift(file);
 
