@@ -19,7 +19,7 @@ var path = require('path');
 var EOL = require('os').EOL;
 var program = require('commander');
 var Convert = require('ansi-to-html');
-var Runner = require('../lib').Runner;
+var createRunner = require('../lib').Runner;
 var _ = require('../lib/common/helper');
 var logger = require('../lib/common/logger');
 var format = require('../lib/common/logFormatter');
@@ -61,7 +61,7 @@ if (options.output) {
   });
 }
 
-var runner = new Runner(options);
+var runner = createRunner(options);
 
 runner.on('data', function(data) {
   if (chunks) {
