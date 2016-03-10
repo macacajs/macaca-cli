@@ -8,17 +8,17 @@
 [download-image]: https://img.shields.io/npm/dm/macaca-client.svg?style=flat-square
 [download-url]: https://npmjs.org/package/macaca-client
 
-> Automation driver for mobile.
+> Client for Macaca.
 
 ## Support
 
-- xcode >= 7.2
-- android sdk >= 4.4.2
-- node >= 4.2.x
+- Xcode Version       >= 7.2
+- Android SDK Version >= 4.4.2
+- Node.js Version     >= 4.2.x
 
 ## Installment
 
-```bash
+```shell
 $ npm i macaca-client -g
 ```
 
@@ -36,8 +36,6 @@ $ macaca server -p 3456
 # run in background
 $ macaca server -p 3456 &
 
-# send signal to server process
-$ dirver -s restart
 ```
 
 ### Run Test
@@ -57,7 +55,6 @@ $ macaca run --server --verbose
 ```shell
 $ macaca doctor
 ```
-You will get message like this.
 
 ### More Help
 
