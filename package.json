@@ -1,7 +1,7 @@
 {
   "name": "macaca-client",
-  "version": "1.0.10",
-  "description": "macaca client for automation",
+  "version": "1.0.11",
+  "description": "Macaca automation client",
   "keywords": [
     "automation",
     "webdriver",
@@ -50,7 +50,7 @@
     "node": ">=4.2.1"
   },
   "author": "xudafeng",
-  "homepage": "https://github.com/macacajs/macaca-client",
+  "homepage": "https://github.com/alibaba/macaca",
   "email": "xudafeng@126.com",
   "blog": "http://xdf.me",
   "license": "MIT"
