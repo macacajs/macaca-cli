@@ -8,7 +8,7 @@
 [download-image]: https://img.shields.io/npm/dm/macaca-client.svg?style=flat-square
 [download-url]: https://npmjs.org/package/macaca-client
 
-> Client for Macaca.
+> Macaca automation client.
 
 ## Support
 
