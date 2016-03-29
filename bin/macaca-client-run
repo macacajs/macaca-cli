@@ -19,8 +19,9 @@ var path = require('path');
 var EOL = require('os').EOL;
 var program = require('commander');
 var Convert = require('ansi-to-html');
-var createRunner = require('../lib').Runner;
+
 var _ = require('../lib/common/helper');
+var createRunner = require('../lib').Runner;
 var logger = require('../lib/common/logger');
 var format = require('../lib/common/logFormatter');
 
@@ -37,7 +38,7 @@ program
   .option('-f, --framework <s>',  'set test framework (default: ' + options.framework + ')')
   .option('-p, --port <d>',       'set port for server (default: ' + options.port + ')')
   .option('-d, --directory <s>',  'set directory for task runner (default: ' + options.directory + ')')
-  .option('-o, --output [s]',     'set output html file')
+  .option('-o, --output <s>',     'set output html file')
   .option('-c, --colors <s>',     'run with console colors (default: ' + options.colors + ')')
   .option('--config',             'run with config file')
   .option('--server',             'run with webdriver server')
