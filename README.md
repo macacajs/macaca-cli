@@ -10,67 +10,9 @@
 
 > Macaca automation client.
 
-## Support
+## Documents
 
-- Xcode Version       >= 7.2
-- Android SDK Version >= 4.4.2
-- Node.js Version     >= 4.2.x
-
-## Installment
-
-```shell
-$ npm i macaca-client -g
-```
-
-## Quick Start
-
-### Start server
-
-```shell
-# normal usage
-$ macaca server
-
-# set a port
-$ macaca server -p 3456
-
-# run in background
-$ macaca server -p 3456 &
-
-```
-
-### Run Test
-
-```shell
-# run test in current cwd
-$ macaca run
-
-# run test in a pointed directry and set a framework
-$ macaca run -d ./test -f mocha
-
-# run with a auto run server?
-$ macaca run --server --verbose
-```
-### Environment Doctor
-
-```shell
-$ macaca doctor
-```
-
-### More Help
-
-```shell
-$ macaca -h
-
-# helper for server
-$ macaca server -h
-
-# helper for how to run test
-$ macaca run -h
-
-# helper for environment doctor
-$ macaca doctor -h
-```
-That's all, enjoy it!
+Live sample & docs: [site](https://macacajs.github.io/macaca/guide.html#/client-usage)
 
 ## License
 
