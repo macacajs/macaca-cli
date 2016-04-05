@@ -38,7 +38,7 @@ program
   .option('-f, --framework <s>',  'set test framework (default: ' + options.framework + ')')
   .option('-p, --port <d>',       'set port for server (default: ' + options.port + ')')
   .option('-d, --directory <s>',  'set directory for task runner (default: ' + options.directory + ')')
-  .option('-o, --output <s>',     'set output html file')
+  .option('-o, --output [s]',     'set output html file')
   .option('-c, --colors <s>',     'run with console colors (default: ' + options.colors + ')')
   .option('--config',             'run with config file')
   .option('--server',             'run with webdriver server')
@@ -47,15 +47,35 @@ program
 
 _.merge(options, _.getConfig(program));
 
-if (options.output) {
+var output = options.output;
+
+if (output) {
   var filePath;
-  if (options.output === true) {
-    var projectName = process.cwd().split('/').pop();
-    var date = _.moment().format('YYYY-MM-DD');
-    filePath = path.resolve(process.cwd(), 'macaca-test', `macaca-${projectName}-${date}.html`);
+  var projectName = process.cwd().split('/').pop();
+  var date = _.moment().format('YYYY-MM-DD');
+  var timestamp = Date.now();
+  if (output === true) {
+    filePath = path.resolve(process.cwd(), 'macaca-test', `macaca-${projectName}-${date}-${timestamp}.html`);
   } else {
-    filePath = options.output;
+    var o = path.resolve(output);
+    if (path.extname(o) === '.html') {
+      try {
+        var dirPath = path.dirname(o);
+        fs.accessSync(path.dirname(dirPath));
+      } catch (e) {
+        _.mkdir(dirPath);
+      }
+      filePath = o;
+    } else {
+      try {
+        fs.accessSync(o);
+      } catch (e) {
+        _.mkdir(o);
+      }
+      filePath = path.resolve(o, `macaca-${projectName}-${date}-${timestamp}.html`);
+    }
   }
+
   var chunks = [];
   var convert = new Convert({
     newline: true
@@ -106,7 +126,7 @@ runner.on('close', function() {
       var foot = '</body></html>';
       fs.writeFileSync(filePath, head + body + foot);
     } catch(e) {
-      console.log('Error happened when writing to output html.');
+      console.log(`Error happened when writing to output html: ${e}`);
     }
   }
   logger.info('Test completed!');
