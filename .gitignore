@@ -11,6 +11,7 @@ npm-debug.log
 .idea/*
 Thumbs.db
 coverage/
+logs/
 .project
 *.un~
 .config.json
