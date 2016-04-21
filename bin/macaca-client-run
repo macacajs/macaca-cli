@@ -41,7 +41,6 @@ program
   .option('-o, --output [s]',     'set output html file')
   .option('-c, --colors <s>',     'run with console colors (default: ' + options.colors + ')')
   .option('--config',             'run with config file')
-  .option('--server',             'run with webdriver server')
   .option('--verbose',            'show more debugging information')
   .parse(process.argv);
 
