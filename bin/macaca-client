@@ -110,6 +110,10 @@ function init(error, data) {
     process.exit('process exited with code ' + code);
   });
 
+  bootstrap.on('exit', function(code) {
+    process.exit(code);
+  });
+
   bootstrap.on('message', function(e) {
     switch (e.signal) {
       case 'kill':
