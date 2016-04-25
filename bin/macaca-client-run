@@ -97,7 +97,7 @@ runner.on('error', function(err) {
   logger.warn(err);
 });
 
-runner.on('close', function() {
+runner.on('close', function(code, signal) {
   if (chunks) {
     try {
       var body = convert.toHtml(chunks.join(EOL));
@@ -129,4 +129,5 @@ runner.on('close', function() {
     }
   }
   logger.info('Test completed!');
+  process.exit(code);
 });
