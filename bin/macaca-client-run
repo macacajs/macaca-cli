@@ -88,7 +88,10 @@ runner.on('data', function(data) {
   if (chunks) {
     chunks.push(format(data, 'html'));
   }
-  logger.info(format(data, 'tty'));
+  var log = format(data, 'tty');
+  if (log !== 'null') {
+    logger.info(log);
+  }
 });
 
 runner.on('error', function(err) {
