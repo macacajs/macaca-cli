@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ================================================================
- * macaca-client by xdf(xudafeng[at]126.com)
+ * macaca-cli by xdf(xudafeng[at]126.com)
  *
  * first created at : Tue Mar 17 2015 00:16:10 GMT+0800 (CST)
  *
