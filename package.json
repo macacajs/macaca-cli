@@ -1,6 +1,6 @@
 {
   "name": "macaca-cli",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Macaca command-line interface",
   "keywords": [
     "automation",
@@ -25,8 +25,8 @@
     "detect-port": "~0.1.4",
     "macaca-doctor": "~1.0.0",
     "macaca-logo": "~0.1.1",
-    "macaca-mocha": "~0.1.9",
     "macaca-utils": "~0.1.3",
+    "mocha": "~2.4.5",
     "npm-update": "~1.0.2",
     "webdriver-server": "~1.0.0",
     "xlogger": "~1.0.0"
