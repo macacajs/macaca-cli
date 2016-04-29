@@ -11,7 +11,7 @@
   "bin": {
     "macaca": "./bin/macaca-cli"
   },
-  "main": "index.js",
+  "main": "./lib",
   "repository": {
     "type": "git",
     "url": "git://github.com/macacajs/macaca-cli.git"

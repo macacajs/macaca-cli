@@ -19,9 +19,3 @@
 ## Documents
 
 Live sample & docs: [site](https://macacajs.github.io/macaca/guide.html#/cli-usage)
-
-## License
-
-[MIT](LICENSE)
-
-Copyright (c) 2014 xdf
