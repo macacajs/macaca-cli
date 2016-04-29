@@ -1,6 +1,6 @@
 'use strict';
 
-var driver = require('..');
+var driver = require('../lib');
 
 describe('lib/index.js', function() {
   describe('server()', function() {
