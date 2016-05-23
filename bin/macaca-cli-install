@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const co = require('co');
+const path = require('path');
+const program = require('commander');
+const installer = require('node-installer');
+
+const _ = require('../lib/common/helper');
+const logger = require('../lib/common/logger');
+
+var driverList = ['ios', 'android', 'electron', 'chrome'];
+
+program
+  .parse(process.argv);
+
+if (program.args.length) {
+  var name = program.args[0].toLowerCase();
+
+  if (!!~driverList.indexOf(name)) {
+    var cwd = path.join(__dirname, '..');
+    installer(`macaca-${name}`, cwd);
+  } else {
+    logger.warn(`${name} driver is not support yet`);
+  }
+} else {
+  logger.warn('please input driver name');
+}
