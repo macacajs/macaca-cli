@@ -9,8 +9,7 @@ const installer = require('node-installer');
 
 const _ = require('../lib/common/helper');
 const logger = require('../lib/common/logger');
-
-var driverList = ['ios', 'android', 'electron', 'chrome'];
+const driverList = require('../lib').drivers;
 
 program
   .parse(process.argv);
