@@ -1,6 +1,6 @@
 {
   "name": "macaca-cli",
-  "version": "1.0.31",
+  "version": "1.0.33",
   "description": "Macaca command-line interface",
   "keywords": [
     "automation",
@@ -36,8 +36,8 @@
   "devDependencies": {
     "co-mocha": "*",
     "istanbul": "*",
-    "should": "*",
-    "jshint": "*"
+    "jshint": "*",
+    "should": "*"
   },
   "scripts": {
     "test": "make test",

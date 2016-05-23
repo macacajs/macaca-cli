@@ -8,7 +8,6 @@ const program = require('commander');
 const installer = require('node-installer');
 
 const _ = require('../lib/common/helper');
-const logger = require('../lib/common/logger');
 const driverList = require('../lib').drivers;
 
 program
@@ -21,8 +20,8 @@ if (program.args.length) {
     var cwd = path.join(__dirname, '..');
     installer(`macaca-${name}`, cwd);
   } else {
-    logger.warn(`${name} driver is not support yet`);
+    console.log(`${name} driver is not support yet`)
   }
 } else {
-  logger.warn('please input driver name');
+  console.log('please input driver name');
 }
