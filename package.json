@@ -1,6 +1,6 @@
 {
   "name": "macaca-cli",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "description": "Macaca command-line interface",
   "keywords": [
     "automation",
@@ -51,7 +51,7 @@
     "node": ">=4.2.1"
   },
   "author": "xudafeng",
-  "homepage": "https://github.com/alibaba/macaca",
+  "homepage": "http://macacajs.github.io/macaca/",
   "email": "xudafeng@126.com",
   "blog": "http://xdf.me",
   "license": "MIT"
