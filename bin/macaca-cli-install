@@ -4,8 +4,7 @@
 
 const co = require('co');
 const path = require('path');
-const program = require('commander');
-const installer = require('node-installer');
+const program = require('commander');i
 
 const _ = require('../lib/common/helper');
 const driverList = require('../lib').drivers;
@@ -17,8 +16,7 @@ if (program.args.length) {
   var name = program.args[0].toLowerCase();
 
   if (!!~driverList.indexOf(name)) {
-    var cwd = path.join(__dirname, '..');
-    installer(`macaca-${name}`, cwd);
+    console.log(`please run: npm install macaca-${name} -g`);
   } else {
     console.log(`${name} driver is not support yet`)
   }
