@@ -32,7 +32,6 @@ program
       '    server          start webdriver server',
       '    doctor          detect environment',
       '    run             run test',
-      '    install         install driver',
       '',
       '  Options:',
       '',
