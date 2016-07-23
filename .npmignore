@@ -10,10 +10,6 @@ coverage/
 plugins/
 docs/
 logs/
-*.swp
-*.swo
-*.swn
-*.swm
-*.swl
-.sw*
+*.sw*
 logs/
+*.un~
