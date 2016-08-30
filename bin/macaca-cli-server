@@ -8,17 +8,9 @@ var server = require('../lib').server;
 var _ = require('../lib/common/helper');
 var logger = require('../lib/common/logger');
 
-var options = {
-  port: 3456,
-  verbose: false,
-  always: true
-};
-
 program
   .option('-p, --port <d>',     'set port for server (default: ' + options.port + ')')
   .option('--verbose',          'show more debugging information')
   .parse(process.argv);
 
-_.merge(options, _.getConfig(program));
-
-co(server, options);
+co(server, _.getConfig(program));
