@@ -4,6 +4,7 @@
 
 var co = require('co');
 var program = require('commander');
+var options = require('../lib/common/config').server
 var server = require('../lib').server;
 var _ = require('../lib/common/helper');
 var logger = require('../lib/common/logger');
