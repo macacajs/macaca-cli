@@ -33,11 +33,14 @@
     "xlogger": "~1.0.0"
   },
   "devDependencies": {
+    "ava": "*",
     "co-mocha": "*",
     "command-line-test": "^1.0.0",
     "istanbul": "*",
+    "jasmine": "*",
     "jshint": "*",
-    "should": "~6.0.3"
+    "should": "~6.0.3",
+    "tman": ">=1.6"
   },
   "scripts": {
     "test": "make test",
