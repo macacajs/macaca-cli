@@ -31,4 +31,10 @@ describe('macaca command-line test', function() {
     var res = yield cliTest.spawn(binFile, ['run', '--verbose']);
     res.stdout.should.containEql(SERVER_INFO);
   });
+
+  it('`macaca doctor` should be ok', function *() {
+    var cliTest = new CliTest();
+    var res = yield cliTest.spawn(binFile, ['doctor']);
+    console.log(res);
+  });
 });
