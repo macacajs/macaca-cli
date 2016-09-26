@@ -1,6 +1,7 @@
 'use strict';
 
 var assert = require('assert');
+
 var driver = require('../lib');
 
 describe('jasmine', function() {
