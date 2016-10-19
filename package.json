@@ -1,6 +1,6 @@
 {
   "name": "macaca-cli",
-  "version": "1.1.2",
+  "version": "1.1.7",
   "description": "Macaca command-line interface",
   "keywords": [
     "automation",
@@ -21,8 +21,8 @@
     "chalk": "~1.1.1",
     "cli-table": "~0.3.1",
     "co": "~4.6.0",
-    "commander": "~2.8.1",
-    "detect-port": "~0.1.4",
+    "commander": "^2.9.0",
+    "detect-port": "^1.0.1",
     "macaca-doctor": "~1.0.0",
     "macaca-logo": "~0.1.1",
     "macaca-utils": "~0.1.3",
@@ -33,10 +33,14 @@
     "xlogger": "~1.0.0"
   },
   "devDependencies": {
+    "ava": "*",
     "co-mocha": "*",
+    "command-line-test": "^1.0.0",
     "istanbul": "*",
+    "jasmine": "*",
     "jshint": "*",
-    "should": "*"
+    "should": "~6.0.3",
+    "tman": ">=1.6"
   },
   "scripts": {
     "test": "make test",
@@ -49,9 +53,6 @@
   "engines": {
     "node": ">=4.2.1"
   },
-  "author": "xudafeng",
   "homepage": "http://macacajs.github.io/macaca/",
-  "email": "xudafeng@126.com",
-  "blog": "http://xdf.me",
   "license": "MIT"
 }
