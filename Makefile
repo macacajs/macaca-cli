@@ -14,15 +14,6 @@ test:
 		./bin/macaca-cli run -d test_jasmine -f tman && \
 		./bin/macaca-cli run -d test_jasmine/jasmine.test.js -f jasmine && \
 		./bin/macaca-cli run -d test_ava -f ava
-travis: install
-	@NODE_ENV=test $(BIN) $(FLAGS) \
-		${npm_bin}/istanbul cover \
-		${npm_bin}/_mocha \
-		--report lcovonly \
-		-- -u exports \
-		$(REQUIRED) \
-		$(TESTS) \
-		--bail
 jshint:
 	@${npm_bin}/jshint .
 .PHONY: test
