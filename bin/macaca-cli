@@ -62,7 +62,8 @@ var file = path.join(__dirname, pkg.name + '-' + cmd);
 
 if (!fs.existsSync(file)) {
   console.log('%s  command `%s` not found', EOL, chalk.yellow(cmd));
-  return program.help();
+  program.help();
+  return;
 }
 
 var printInfo = function(lines) {
@@ -85,6 +86,7 @@ function init(error, data) {
 
   if (data && data.version && pkg.version !== data.version) {
     printInfo([`version ${pkg.version} is outdate`, `run: npm i -g ${pkg.name}@${data.version}`]);
+    console.info(`More information: ${chalk.underline(chalk.white(pkg.changelog))}${EOL}`);
     return;
   }
 
