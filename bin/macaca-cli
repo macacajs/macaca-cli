@@ -14,6 +14,13 @@ var spawn = require('child_process').spawn;
 var pkg = require('../package');
 var logger = require('../lib/common/logger');
 
+if (process.env.SUDO_USER) {
+  console.log('DONT USE `sudo`, `/usr/local` is not writable');
+  console.log('sudo chown -R $(whoami) /usr/local');
+  process.exit(0);
+  return;
+}
+
 program
   .option('-v, --versions',     'show version and exit')
   .option('--verbose',          'show more debugging information')
