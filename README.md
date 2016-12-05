@@ -18,4 +18,4 @@
 
 ## Documents
 
-Live sample & docs: [site](//macacajs.github.io/macaca/guide.html#/cli-usage)
+Live sample & docs: [site](//macacajs.github.io/cli-usage)

@@ -53,7 +53,7 @@
   "engines": {
     "node": ">=4.2.1"
   },
-  "homepage": "https://macacajs.github.io/macaca/",
-  "changelog": "https://macacajs.github.io/macaca/changelog.html",
+  "homepage": "https://macacajs.github.io",
+  "changelog": "https://macacajs.github.io/changelog.html",
   "license": "MIT"
 }
