@@ -40,7 +40,7 @@ var output = options.output;
 
 if (output) {
   var filePath;
-  var projectName = process.cwd().split('/').pop();
+  var projectName = process.cwd().split(path.sep).pop();
   var date = _.moment().format('YYYY-MM-DD');
   var timestamp = Date.now();
   if (output === true) {
