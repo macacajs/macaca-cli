@@ -23,15 +23,17 @@ var options = {
 };
 
 program
-  .option('-f, --framework <s>',  'set test framework (default: ' + options.framework + ')')
-  .option('-p, --port <d>',       'set port for server (default: ' + options.port + ')')
-  .option('-d, --directory <s>',  'set directory for task runner (default: ' + options.directory + ')')
-  .option('-o, --output [s]',     'set output html file')
-  .option('-r, --reporter <s>',   'set reporter (default: Spec)')
-  .option('-c, --colors <s>',     'run with console colors (default: ' + options.colors + ')')
-  .option('--config',             'run with config file')
-  .option('--no-window',          'run in silence')
-  .option('--verbose',            'show more debugging information')
+  .option('-f, --framework <s>',  'Set test framework (defaults: ' + options.framework + ')')
+  .option('-p, --port <d>',       'Set port for server (defaults: ' + options.port + ')')
+  .option('-d, --directory <s>',  'Set directory for task runner (defaults: ' + options.directory + ')')
+  .option('-o, --output [s]',     'Set output html file')
+  .option('-r, --reporter <s>',   'Set reporter (default: Spec)')
+  .option('-c, --colors <s>',     'Force enabling of colors (defaults: ' + options.colors + ')')
+  .option('-C, --no-colors',      'Force disabling of colors')
+  .option('--require <name>',     'Require the given module')
+  .option('--f_options <s>',      'The options used for test framework itself')
+  .option('--no-window',          'Let Electron runs in silence')
+  .option('--verbose',            'Displays more debugging information')
   .parse(process.argv);
 
 _.merge(options, _.getConfig(program));
@@ -40,7 +42,7 @@ var output = options.output;
 
 if (output) {
   var filePath;
-  var projectName = process.cwd().split('/').pop();
+  var projectName = process.cwd().split(path.sep).pop();
   var date = _.moment().format('YYYY-MM-DD');
   var timestamp = Date.now();
   if (output === true) {
