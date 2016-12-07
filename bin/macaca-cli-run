@@ -30,10 +30,10 @@ program
   .option('-r, --reporter <s>',   'Set reporter (default: Spec)')
   .option('-c, --colors <s>',     'Force enabling of colors (defaults: ' + options.colors + ')')
   .option('-C, --no-colors',      'Force disabling of colors')
-  .option('--config',             'Run with config file')
-  .option('--no-window',          'Run in silence')
+  .option('--require <name>',     'Require the given module')
   .option('--f_options <s>',      'The options used for test framework itself')
-  .option('--verbose',            'Show more debugging information')
+  .option('--no-window',          'Let Electron runs in silence')
+  .option('--verbose',            'Displays more debugging information')
   .parse(process.argv);
 
 _.merge(options, _.getConfig(program));
