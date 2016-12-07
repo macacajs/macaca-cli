@@ -2,6 +2,7 @@
 
 const path = require('path');
 const EOL = require('os').EOL;
+const should = require('should');
 const CliTest = require('command-line-test');
 
 const pkg = require('../package');
@@ -37,7 +38,7 @@ describe('macaca command-line test', function() {
     var cliTest = new CliTest();
     // only empty.test.js for avoiding recursive test
     var args = ['run', '--verbose', '-d', 'test/empty.test.js', '-p', '3457'];
-    return cliTest.spawn(binFile, args).then((res) => {
+    return cliTest.spawn(binFile, args).then(res => {
       res.stdout.should.containEql('webdriver sdk launched');
       res.stdout.should.containEql('Test completed!');
     });
