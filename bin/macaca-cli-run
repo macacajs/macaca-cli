@@ -23,15 +23,17 @@ var options = {
 };
 
 program
-  .option('-f, --framework <s>',  'set test framework (default: ' + options.framework + ')')
-  .option('-p, --port <d>',       'set port for server (default: ' + options.port + ')')
-  .option('-d, --directory <s>',  'set directory for task runner (default: ' + options.directory + ')')
-  .option('-o, --output [s]',     'set output html file')
-  .option('-r, --reporter <s>',   'set reporter (default: Spec)')
-  .option('-c, --colors <s>',     'run with console colors (default: ' + options.colors + ')')
-  .option('--config',             'run with config file')
-  .option('--no-window',          'run in silence')
-  .option('--verbose',            'show more debugging information')
+  .option('-f, --framework <s>',  'Set test framework (defaults: ' + options.framework + ')')
+  .option('-p, --port <d>',       'Set port for server (defaults: ' + options.port + ')')
+  .option('-d, --directory <s>',  'Set directory for task runner (defaults: ' + options.directory + ')')
+  .option('-o, --output [s]',     'Set output html file')
+  .option('-r, --reporter <s>',   'Set reporter (default: Spec)')
+  .option('-c, --colors <s>',     'Force enabling of colors (defaults: ' + options.colors + ')')
+  .option('-C, --no-colors',      'Force disabling of colors')
+  .option('--config',             'Run with config file')
+  .option('--no-window',          'Run in silence')
+  .option('--f_options <s>',      'The options used for test framework itself')
+  .option('--verbose',            'Show more debugging information')
   .parse(process.argv);
 
 _.merge(options, _.getConfig(program));
