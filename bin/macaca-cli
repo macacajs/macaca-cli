@@ -94,7 +94,6 @@ function init(error, data) {
   if (data && data.version && pkg.version !== data.version) {
     printInfo([`version ${pkg.version} is outdate`, `run: npm i -g ${pkg.name}@${data.version}`]);
     console.info(`More information: ${chalk.underline(chalk.white(pkg.changelog))}${EOL}`);
-    return;
   }
 
   var args = program.rawArgs.slice(3);
