@@ -1,8 +1,8 @@
 'use strict';
 
+require('should');
 const path = require('path');
 const EOL = require('os').EOL;
-const should = require('should');
 const CliTest = require('command-line-test');
 
 const pkg = require('../package');

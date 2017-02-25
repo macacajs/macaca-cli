@@ -2,3 +2,4 @@
 node_modules/
 coverage/
 docs/
+lib/common/logFormatter/index.js
