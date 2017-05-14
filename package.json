@@ -1,6 +1,6 @@
 {
   "name": "macaca-cli",
-  "version": "1.2.3",
+  "version": "2.0.0",
   "description": "Macaca command-line interface",
   "keywords": [
     "automation",
@@ -51,7 +51,7 @@
     "jshint"
   ],
   "engines": {
-    "node": ">=4.2.1"
+    "node": ">=6.9.0"
   },
   "homepage": "https://macacajs.github.io",
   "changelog": "https://macacajs.github.io/changelog.html",
