@@ -1,6 +1,5 @@
 'use strict';
 
-require('should');
 const path = require('path');
 const EOL = require('os').EOL;
 const CliTest = require('command-line-test');

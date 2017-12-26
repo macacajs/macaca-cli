@@ -26,29 +26,27 @@
     "macaca-doctor": "~2.0.3",
     "macaca-logo": "~0.1.1",
     "macaca-utils": "^1.0.0",
-    "mocha": "~2.4.5",
+    "mocha": "^4.0.1",
     "npm-update": "~1.0.2",
     "should": "^8.3.1",
     "webdriver-server": "~1.1.0",
     "xlogger": "~1.0.0"
   },
   "devDependencies": {
-    "ava": "*",
     "co-mocha": "*",
     "command-line-test": "^1.0.0",
-    "istanbul": "*",
-    "jasmine": "*",
-    "jshint": "*",
-    "should": "~6.0.3",
-    "tman": ">=1.6"
+    "eslint": "^4.14.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "istanbul": "*"
   },
   "scripts": {
-    "test": "make test",
-    "jshint": "make jshint",
+    "test": "istanbul cover `npm bin`/_mocha",
+    "lint": "eslint --fix .",
+    "ci": "npm run lint && npm run test",
     "postinstall": "node ./scripts/print.js"
   },
   "precommit": [
-    "jshint"
+    "lint"
   ],
   "engines": {
     "node": ">=6.9.0"
