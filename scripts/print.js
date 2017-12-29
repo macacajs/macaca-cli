@@ -2,11 +2,13 @@
 
 'use strict';
 
-var chalk = require('chalk');
 var EOL = require('os').EOL;
 var logo = require('macaca-logo');
 
 var pkg = require('../package');
+var _ = require('../lib/common/helper');
+
+var chalk = _.chalk;
 
 console.log('');
 logo.print();
