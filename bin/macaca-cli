@@ -6,20 +6,17 @@ var co = require('co');
 var fs = require('fs');
 var path = require('path');
 var EOL = require('os').EOL;
-var chalk = require('chalk');
 var update = require('npm-update');
 var program = require('commander');
 var spawn = require('child_process').spawn;
 
 var pkg = require('../package');
+var _ = require('../lib/common/helper');
 var logger = require('../lib/common/logger');
 
-if (process.env.SUDO_USER) {
-  console.log('DONT USE `sudo`, `/usr/local` is not writable');
-  console.log('sudo chown -R $(whoami) /usr/local');
-  process.exit(0);
-  return;
-}
+var chalk = _.chalk;
+
+_.sudoUserPermissionDenied();
 
 program
   .option('-v, --versions',     'show version and exit')
