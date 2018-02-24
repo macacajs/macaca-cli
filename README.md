@@ -24,7 +24,7 @@ $ npm i macaca-cli -g
 
 ## Common Usage
 
-Live sample & docs: [site](//macacajs.github.io/cli-usage)
+Live sample & docs: [link](//macacajs.github.io/quick-start)
 
 ## License
 
