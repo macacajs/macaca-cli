@@ -1,3 +1,7 @@
+# 2.1.0 / 2018-02-24
+
+  * Coverage report supportd
+
 # 1.1.4 / 2016-09-26
 
   * More frameworks supported, such as tman, jasmine, ava.
