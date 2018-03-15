@@ -1,6 +1,6 @@
 {
   "name": "macaca-cli",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Macaca command-line interface",
   "keywords": [
     "automation",
@@ -26,7 +26,7 @@
     "commander": "^2.9.0",
     "macaca-coverage": "^1.0.0",
     "macaca-doctor": "~2.0.3",
-    "macaca-logo": "~0.1.1",
+    "macaca-logo": "^1.0.0",
     "macaca-utils": "^1.0.0",
     "mocha": "^4.0.1",
     "npm-update": "~1.0.2",
