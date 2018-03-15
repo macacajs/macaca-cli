@@ -38,7 +38,7 @@ describe('macaca command-line test', function() {
     // only empty.test.js for avoiding recursive test
     var args = ['run', '--verbose', '-d', 'test/empty.test.js', '-p', '3457'];
     return cliTest.spawn(binFile, args).then(res => {
-      res.stdout.should.containEql('webdriver sdk launched');
+      res.stdout.should.containEql('Macaca server started');
       res.stdout.should.containEql('Test completed!');
     });
   });
