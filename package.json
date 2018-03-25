@@ -39,13 +39,15 @@
     "command-line-test": "^1.0.0",
     "eslint": "^4.14.0",
     "eslint-plugin-mocha": "^4.11.0",
+    "git-contributor": "^1.0.0",
     "istanbul": "*"
   },
   "scripts": {
     "test": "istanbul cover `npm bin`/_mocha",
     "lint": "eslint --fix .",
     "ci": "npm run lint && npm run test",
-    "postinstall": "node ./scripts/print.js"
+    "postinstall": "node ./scripts/print.js",
+    "contributor": "git-contributor"
   },
   "precommit": [
     "lint"
