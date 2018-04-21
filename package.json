@@ -39,7 +39,7 @@
     "command-line-test": "^1.0.0",
     "eslint": "^4.14.0",
     "eslint-plugin-mocha": "^4.11.0",
-    "git-contributor": "^1.0.0",
+    "git-contributor": "^1.0.7",
     "istanbul": "*"
   },
   "scripts": {
