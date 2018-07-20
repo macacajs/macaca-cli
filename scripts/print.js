@@ -10,6 +10,10 @@ var _ = require('../lib/common/helper');
 
 var chalk = _.chalk;
 
-console.log('');
-logo.print();
+var dontPrint = process.env.NODE_ENV === 'production' || process.env.SKIP_MACACA_LOGO;
+if (!dontPrint) {
+  console.log('');
+  logo.print();
+}
+
 console.log(`${chalk.white('Macaca was successfully installed! Please visit: ')}${chalk.cyan(pkg.homepage)}${EOL}`);
