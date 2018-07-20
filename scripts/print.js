@@ -10,7 +10,9 @@ var _ = require('../lib/common/helper');
 
 var chalk = _.chalk;
 
-var dontPrint = process.env.NODE_ENV === 'production' || process.env.SKIP_MACACA_LOGO;
+var dontPrint = process.env.NODE_ENV === 'production' ||
+  process.env.SKIP_MACACA_LOGO;
+
 if (!dontPrint) {
   console.log('');
   logo.print();
