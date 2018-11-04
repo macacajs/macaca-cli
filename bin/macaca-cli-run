@@ -33,7 +33,7 @@ program
   .option('--require <name>',     'Require the given module')
   .option('--f_options <s>',      'The options used for test framework itself')
   .option('--no-window',          'Let Electron runs in silence')
-  .option('--parrellel',          'Let Electron run in parrellel process')
+  .option('--parallel',           'Let Electron run in parallel process')
   .option('--verbose',            'Displays more debugging information')
   .parse(process.argv);
 
