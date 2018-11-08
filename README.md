@@ -16,16 +16,6 @@
 
 > Macaca command-line interface
 
-## Installment
-
-```bash
-$ npm i macaca-cli -g
-```
-
-## Common Usage
-
-Live sample & docs: [link](//macacajs.github.io/quick-start)
-
 <!-- GITCONTRIBUTOR_START -->
 
 ## Contributors
@@ -37,6 +27,16 @@ Live sample & docs: [link](//macacajs.github.io/quick-start)
 This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto upated at `Fri Jul 20 2018 12:31:22 GMT+0800`.
 
 <!-- GITCONTRIBUTOR_END -->
+
+## Installment
+
+```bash
+$ npm i macaca-cli -g
+```
+
+## Common Usage
+
+Live sample & docs: [link](//macacajs.github.io/quick-start)
 
 ## License
 
