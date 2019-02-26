@@ -3,8 +3,8 @@ test/
 .eslintrc
 .eslintignore
 coverage/
+.nyc_output/
 .config.json
-docs/
 logs/
 *.sw*
 *.un~
