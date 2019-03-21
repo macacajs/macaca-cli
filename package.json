@@ -59,6 +59,6 @@
     "node": ">=8"
   },
   "homepage": "https://macacajs.github.io",
-  "changelog": "https://macacajs.github.io/changelog.html",
+  "changelog": "https://macacajs.github.io/guide/support.html",
   "license": "MIT"
 }
