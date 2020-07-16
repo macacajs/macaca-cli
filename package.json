@@ -1,6 +1,6 @@
 {
   "name": "macaca-cli",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Macaca command-line interface",
   "keywords": [
     "automation",
@@ -32,7 +32,7 @@
     "mocha-parallel-tests": "^2.0.6-alpha.2",
     "npm-update": "~1.0.2",
     "should": "^8.3.1",
-    "webdriver-server": "~1.1.0",
+    "webdriver-server": "~1.1.8",
     "xlogger": "~1.0.0"
   },
   "devDependencies": {
