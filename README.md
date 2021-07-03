@@ -6,15 +6,15 @@
 [![Test coverage][coveralls-image]][coveralls-url]
 [![npm download][download-image]][download-url]
 
-[npm-image]: https://img.shields.io/npm/v/macaca-cli.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/macaca-cli.svg
 [npm-url]: https://npmjs.org/package/macaca-cli
 [quality-image]: https://packagequality.com/shield/macaca-cli.svg
 [quality-url]: https://packagequality.com/#?package=macaca-cli
-[travis-image]: https://img.shields.io/travis/macacajs/macaca-cli.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/macacajs/macaca-cli.svg
 [travis-url]: https://travis-ci.org/macacajs/macaca-cli
-[coveralls-image]: https://img.shields.io/coveralls/macacajs/macaca-cli.svg?style=flat-square
+[coveralls-image]: https://img.shields.io/coveralls/macacajs/macaca-cli.svg
 [coveralls-url]: https://coveralls.io/r/macacajs/macaca-cli?branch=master
-[download-image]: https://img.shields.io/npm/dm/macaca-cli.svg?style=flat-square
+[download-image]: https://img.shields.io/npm/dm/macaca-cli.svg
 [download-url]: https://npmjs.org/package/macaca-cli
 
 > Macaca command-line interface
