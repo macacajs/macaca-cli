@@ -1,12 +1,15 @@
 # macaca-cli
 
 [![NPM version][npm-image]][npm-url]
+[![Package quality][quality-image]][quality-url]
 [![build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![npm download][download-image]][download-url]
 
 [npm-image]: https://img.shields.io/npm/v/macaca-cli.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/macaca-cli
+[quality-image]: https://packagequality.com/shield/macaca-cli.svg
+[quality-url]: https://packagequality.com/#?package=macaca-cli
 [travis-image]: https://img.shields.io/travis/macacajs/macaca-cli.svg?style=flat-square
 [travis-url]: https://travis-ci.org/macacajs/macaca-cli
 [coveralls-image]: https://img.shields.io/coveralls/macacajs/macaca-cli.svg?style=flat-square
