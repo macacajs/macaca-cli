@@ -7,14 +7,13 @@ var program = require('commander');
 var Doctor = require('macaca-doctor');
 
 var _ = require('../lib/common/helper');
-var logger = require('../lib/common/logger');
 
 var options = {
   verbose: false
 };
 
 program
-  .option('--verbose',      'show more debugging information')
+  .option('--verbose', 'show more debugging information')
   .parse(process.argv);
 
 _.merge(options, _.getConfig(program));

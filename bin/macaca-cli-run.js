@@ -23,19 +23,19 @@ const options = {
 };
 
 program
-  .option('-f, --framework <s>',     'Set test framework (defaults: ' + options.framework + ')')
-  .option('-p, --port <d>',          'Set port for server (defaults: ' + options.port + ')')
+  .option('-f, --framework <s>', 'Set test framework (defaults: ' + options.framework + ')')
+  .option('-p, --port <d>', 'Set port for server (defaults: ' + options.port + ')')
   .option('-d, --directory <items>', 'Set directory for task runner (defaults: ' + options.directory + ')', value => value.split(','))
-  .option('-o, --output [s]',        'Set output html file')
-  .option('-r, --reporter <s>',      'Set reporter (default: Spec)')
-  .option('-c, --colors <s>',        'Force enabling of colors (defaults: ' + options.colors + ')')
-  .option('-C, --no-colors',         'Force disabling of colors')
-  .option('--require <name>',        'Require the given module')
-  .option('--f_options <s>',         'The options used for test framework itself')
-  .option('--coverage-ignore <s>',   'Ignore RegExp used for macaca-coverage')
-  .option('--no-window',             'Let Electron runs in silence')
-  .option('--parallel',              'Let Electron run in parallel process')
-  .option('--verbose',               'Displays more debugging information')
+  .option('-o, --output [s]', 'Set output html file')
+  .option('-r, --reporter <s>', 'Set reporter (default: Spec)')
+  .option('-c, --colors <s>', 'Force enabling of colors (defaults: ' + options.colors + ')')
+  .option('-C, --no-colors', 'Force disabling of colors')
+  .option('--require <name>', 'Require the given module')
+  .option('--f_options <s>', 'The options used for test framework itself')
+  .option('--coverage-ignore <s>', 'Ignore RegExp used for macaca-coverage')
+  .option('--no-window', 'Let Electron runs in silence')
+  .option('--parallel', 'Let Electron run in parallel process')
+  .option('--verbose', 'Displays more debugging information')
   .parse(process.argv);
 
 _.merge(options, _.getConfig(program));
@@ -121,7 +121,7 @@ runner.on('close', function(code, signal) {
           <body style="width:990px;word-break:break-all;margin:0 auto;">`;
       var foot = '</body></html>';
       fs.writeFileSync(filePath, head + body + foot);
-    } catch(e) {
+    } catch (e) {
       console.log(`Error happened when writing to output html: ${e}`);
     }
   }
