@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - '**'
+
+jobs:
+  Runner:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout git source
+        uses: actions/checkout@v3
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: |
+          npm i npm@6 -g
+          npm i
+
+      - name: Continuous integration
+        run: |
+          npm run lint
+          npm run test
+
+      - name: Code coverage
+        uses: codecov/codecov-action@v3.0.0
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
