@@ -12,17 +12,17 @@ var spawn = require('child_process').spawn;
 
 var pkg = require('../package');
 var _ = require('../lib/common/helper');
-var logger = require('../lib/common/logger');
 
 var chalk = _.chalk;
 
 _.sudoUserPermissionDenied();
 
 program
-  .option('-v, --versions',     'show version and exit')
-  .option('--verbose',          'show more debugging information')
+  .option('-v, --versions', 'show version and exit')
+  .option('--verbose', 'show more debugging information')
   .usage('<command> [options] [arguments]')
   .helpInformation = function() {
+    // eslint-disable-next-line no-sparse-arrays
     return [
       '',
       '  ' + chalk.white(pkg.description),
@@ -87,7 +87,7 @@ var printInfo = function(lines) {
   console.log(chalk.white(`${EOL}${res.join(EOL)}${EOL}`));
 };
 
-function init(error, data) {
+function init(_, data) {
 
   if (data && data.version && pkg.version !== data.version) {
     printInfo([`version ${pkg.version} is outdate`, `run: npm i -g ${pkg.name}@${data.version}`]);
@@ -111,9 +111,9 @@ function init(error, data) {
 
   bootstrap.on('message', function(e) {
     switch (e.signal) {
-      case 'kill':
-        bootstrap.kill();
-        break;
+    case 'kill':
+      bootstrap.kill();
+      break;
     }
   });
 }
