@@ -63,7 +63,7 @@ if (!cmd) {
   return program.help();
 }
 
-var file = path.join(__dirname, pkg.name + '-' + cmd);
+var file = path.join(__dirname, `${pkg.name}-${cmd}.js`);
 
 if (!fs.existsSync(file)) {
   console.log('%s  command `%s` not found', EOL, chalk.yellow(cmd));
