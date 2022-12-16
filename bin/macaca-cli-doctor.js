@@ -4,8 +4,8 @@
 
 var co = require('co');
 var program = require('commander');
-var Doctor = require('macaca-doctor');
 
+var Doctor = require('../lib/doctor');
 var _ = require('../lib/common/helper');
 
 var options = {
