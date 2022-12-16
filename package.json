@@ -1,6 +1,6 @@
 {
   "name": "macaca-cli",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Macaca command-line interface",
   "keywords": [
     "automation",
@@ -29,13 +29,16 @@
     "cli-table": "~0.3.1",
     "co": "~4.6.0",
     "commander": "^2.20.0",
+    "co-request": "^1.0.0",
+    "java-util": "~0.1.0",
     "macaca-coverage": "^1.0.0",
-    "macaca-doctor": "~2.0.3",
     "macaca-logo": "^1.0.0",
     "macaca-utils": "^1.0.0",
     "mocha": "^5.2.0",
     "mocha-parallel-tests": "^2.0.6-alpha.2",
+    "net-tools": "^1.0.0",
     "npm-update": "~1.0.2",
+    "semver": "^5.3.0",
     "should": "^8.3.1",
     "webdriver-server": "1",
     "xlogger": "~1.0.0"
