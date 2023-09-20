@@ -25,7 +25,7 @@ const options = {
 program
   .option('-f, --framework <s>', 'Set test framework (defaults: ' + options.framework + ')')
   .option('-p, --port <d>', 'Set port for server (defaults: ' + options.port + ')')
-  .option('-d, --directory <items>', 'Set directory for task runner (defaults: ' + options.directory + ')', value => value.split(','))
+  .option('-d, --directory <s>', 'Set directory for task runner (defaults: ' + options.directory + ')')
   .option('-o, --output [s]', 'Set output html file')
   .option('-r, --reporter <s>', 'Set reporter (default: Spec)')
   .option('-c, --colors <s>', 'Force enabling of colors (defaults: ' + options.colors + ')')
